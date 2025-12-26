@@ -4,204 +4,299 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>千语外教 - 全球外教供应链赋能计划</title>
+    <title>千语外教 · 机构外教业务解决方案</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/white.min.css">
 
     <style>
-        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-            text-transform: none;
-            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-            color: #2c3e50;
+        /* 全局字体与背景 */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* 高级灰蓝渐变背景 */
         }
-        .reveal .slides {
-            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        .reveal {
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #333;
+        }
+        
+        /* 标题样式 */
+        .reveal h1, .reveal h2, .reveal h3 {
+            text-transform: none;
+            font-weight: 600;
+            color: #2c3e50;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .reveal h1 { font-size: 2.5em; letter-spacing: -1px; }
+        .reveal h2 { font-size: 1.8em; color: #34495e; margin-bottom: 30px; }
+        
+        /* 卡片式布局 */
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin: 20px 0;
             text-align: left;
         }
-        .reveal ul li {
-            margin-bottom: 15px;
-        }
-        .highlight {
-            color: #e74c3c;
-            font-weight: bold;
-        }
+        
+        /* 分栏布局 */
         .container {
             display: flex;
             justify-content: space-between;
+            gap: 20px;
         }
         .col {
             flex: 1;
-            padding: 20px;
-            background: #f8f9fa;
-            margin: 10px;
-            border-radius: 8px;
-            font-size: 0.8em;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-size: 0.85em;
         }
-        .box {
-            border: 2px solid #34495e;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            text-align: center;
+        
+        /* 强调色与高亮 */
+        .highlight-blue { color: #3498db; font-weight: bold; }
+        .highlight-red { color: #e74c3c; font-weight: bold; }
+        .highlight-bg {
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            border-left: 5px solid #00bcd4;
+            padding: 15px;
+            border-radius: 4px;
         }
-        .small-text {
-            font-size: 0.6em;
-            color: #7f8c8d;
+        
+        /* 价格标签 */
+        .price-tag {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin: 10px 0;
+            display: block;
         }
-        /* Logo 样式 */
+        .price-tag.blue { color: #2980b9; }
+        .price-tag.red { color: #c0392b; }
+
+        /* 列表优化 */
+        ul.check-list li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+        ul.check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Logo 图片样式 */
         .logo-img {
-            max-width: 300px; 
-            margin-bottom: 20px !important;
+            max-width: 280px;
+            margin-bottom: 30px !important;
             border: none !important;
             box-shadow: none !important;
+            background: transparent !important;
+        }
+        
+        /* 底部页脚 */
+        .footer-info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 0.5em;
+            color: #95a5a6;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
     <div class="reveal">
+        <div class="footer-info">千语外教 · 合作方案</div>
+
         <div class="slides">
 
             <section style="text-align: center;">
                 <img src="千语外教logo.jpg" alt="千语外教Logo" class="logo-img">
                 
-                <h1 style="font-size: 2.2em; margin-top: 0;">全球外教供应链赋能计划</h1>
-                <h3 style="color: #7f8c8d; font-size: 1.2em; margin-top: 20px;">为30,000+合作机构提供“师资+技术”一站式解决方案</h3>
-                <div style="margin-top: 80px; font-size: 0.8em; color: #34495e;">
-                    <p>千语外教 × ClassIn</p>
+                <h1>机构外教业务解决方案</h1>
+                <h3 style="font-weight: 300; color: #555; font-size: 1.3em; margin-top: 20px;">
+                    助力机构 <span class="highlight-blue">低成本</span> · <span class="highlight-blue">零风险</span> 开启高品质外教课
+                </h3>
+                <div style="margin-top: 60px; font-size: 0.9em; color: #7f8c8d; border-top: 1px solid #ddd; padding-top: 20px; display:inline-block;">
+                    千语外教 × ClassIn 深度技术合作
                 </div>
             </section>
 
             <section>
-                <h2>机构开展外教业务的“三座大山”</h2>
-                <ul>
-                    <li><strong>招聘管理难：</strong><br><span style="font-size:0.8em; color:#666">优质外教难寻，办证繁琐，人员流动性大，管理精力分散。</span></li>
-                    <li><strong>运营成本高：</strong><br><span style="font-size:0.8em; color:#666">全职外教底薪高，淡季养人负担重，试错成本昂贵。</span></li>
-                    <li><strong>上课体验差：</strong><br><span style="font-size:0.8em; color:#666">普通视频软件卡顿，缺乏专业教学互动工具，家长满意度低。</span></li>
-                </ul>
-                <div class="box" style="border-color: #e74c3c; color: #e74c3c; font-weight: bold;">
-                    您需要一个“轻资产、零风险、高品质”的解决方案
-                </div>
-            </section>
-
-            <section>
-                <h2>硬核师资 + 顶尖技术</h2>
+                <h2>为什么机构想做外教，却不敢做？</h2>
                 <div class="container">
                     <div class="col">
-                        <h4 style="color:#2980b9">两大严选师资</h4>
-                        <hr>
-                        <p><strong>🇵🇭 菲教团队：</strong><br>100%持证 (TESOL/TEFL)，全职管理，口音纯正，极高性价比。</p>
-                        <p><strong>🇺🇸 北美团队：</strong><br>来自美加本土，丰富K12教学经验，注重批判性思维引导。</p>
+                        <div style="font-size: 3em; margin-bottom: 10px;">😫</div>
+                        <h4 style="margin:0;">招聘管理难</h4>
+                        <p style="color:#666; font-size:0.9em;">优质外教难寻，签证繁琐，人员流动大，管理牵扯精力。</p>
                     </div>
                     <div class="col">
-                        <h4 style="color:#27ae60">ClassIn 技术赋能</h4>
-                        <hr>
-                        <p class="highlight">包含在成本内！无需额外付费</p>
-                        <ul>
-                            <li>多人互动直播</li>
-                            <li>云端录播存储</li>
-                            <li>课后无限回放</li>
-                            <li>学习数据报告</li>
+                        <div style="font-size: 3em; margin-bottom: 10px;">💸</div>
+                        <h4 style="margin:0;">运营成本高</h4>
+                        <p style="color:#666; font-size:0.9em;">全职底薪高，淡季养人负担重，试错成本极高。</p>
+                    </div>
+                    <div class="col">
+                        <div style="font-size: 3em; margin-bottom: 10px;">📉</div>
+                        <h4 style="margin:0;">上课体验差</h4>
+                        <p style="color:#666; font-size:0.9em;">普通软件卡顿，无互动工具，家长满意度低。</p>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; text-align: center; color: #e74c3c; font-weight: bold; font-size: 1.2em;">
+                    👉 我们为您提供“轻资产、高品质”的解决方案
+                </div>
+            </section>
+
+            <section>
+                <h2>严选全球师资</h2>
+                <div class="container">
+                    <div class="col" style="border-top: 5px solid #3498db;">
+                        <h3 style="color:#2980b9">🇵🇭 菲律宾外教</h3>
+                        <ul class="check-list">
+                            <li><strong>100% 持证：</strong>拥有 TESOL/TEFL 国际英语教学资格证。</li>
+                            <li><strong>全职管理：</strong>非兼职临时工，经过严格岗前培训。</li>
+                            <li><strong>超高性价比：</strong>口音纯正，亲和力强，家长决策成本低。</li>
+                        </ul>
+                    </div>
+                    <div class="col" style="border-top: 5px solid #e74c3c;">
+                        <h3 style="color:#c0392b">🇺🇸 北美外教</h3>
+                        <ul class="check-list">
+                            <li><strong>纯正母语：</strong>来自美国/加拿大本土，原汁原味美式发音。</li>
+                            <li><strong>资深经验：</strong>丰富 K12 教学经验，擅长引导式教学。</li>
+                            <li><strong>高端首选：</strong>适合提升机构品牌档次，满足高端家长需求。</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2>不只是卖课，更是为您现有APP“升维”</h2>
-                <div style="background:#ecf0f1; padding:20px; border-radius:10px; margin-bottom:20px;">
-                    <p style="text-align:center;">📱 <strong>独家技术优势：APP无缝嵌入</strong></p>
+                <h2>ClassIn 顶尖教学体验</h2>
+                <p style="font-size: 0.9em; color: #666; margin-bottom: 30px;">告别卡顿与单调，让在线课堂像线下一样生动</p>
+
+                <div class="card" style="display: flex; align-items: center; justify-content: space-around;">
+                    <div style="text-align: center; flex: 1;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050523.png" style="width: 80px; border:none; box-shadow:none;">
+                        <h4>沉浸式互动</h4>
+                        <p style="font-size: 0.7em; color:#666;">举手抢答、多人上台<br>电子黑板、互动课件</p>
+                    </div>
+                    <div style="text-align: center; flex: 1; border-left: 1px solid #eee; border-right: 1px solid #eee;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2906/2906274.png" style="width: 80px; border:none; box-shadow:none;">
+                        <h4>云端录播存储</h4>
+                        <p style="font-size: 0.7em; color:#666;">自动生成高清回放<br>随时随地复习巩固</p>
+                    </div>
+                    <div style="text-align: center; flex: 1;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1161/1161388.png" style="width: 80px; border:none; box-shadow:none;">
+                        <h4>全流程数据</h4>
+                        <p style="font-size: 0.7em; color:#666;">学习报告自动生成<br>教学效果可视化</p>
+                    </div>
                 </div>
-                <ul>
-                    <li><strong>无缝嵌入：</strong><br>您的学生不需要下载第三方软件，直接在 <strong>您的品牌APP</strong> 里约课、上课。</li>
-                    <li><strong>流量闭环：</strong><br>学生不流失，数据全掌握，极大增强家长对机构品牌的归属感。</li>
-                    <li><strong>极速上线：</strong><br>现有系统直接开通，无需开发，即刻使用。</li>
-                </ul>
             </section>
 
             <section>
-                <h2>模式一：品牌自营（批发模式）</h2>
-                <p style="font-size: 0.9em; color: #7f8c8d;">适用：有生源基础、想做自有品牌、追求高利润的机构</p>
+                <h2>模式一：品牌自营 (批发采购)</h2>
+                <div class="highlight-bg" style="font-size: 0.9em; margin-bottom: 30px;">
+                    <strong>适用对象：</strong> 有生源基础、想做自有品牌、追求高利润的机构。
+                </div>
+
+                <div class="container">
+                    <div class="col" style="background: #fff; text-align: center; border: 1px solid #e1e1e1;">
+                        <div style="font-size: 1.2em; font-weight: bold; color: #555;">菲教 1v1</div>
+                        <span class="price-tag blue">28元 <span style="font-size:0.4em; font-weight:normal;">/节</span></span>
+                        <div style="font-size: 0.7em; color: #999;">含ClassIn技术费</div>
+                    </div>
+                    <div class="col" style="background: #fff; text-align: center; border: 1px solid #e1e1e1;">
+                        <div style="font-size: 1.2em; font-weight: bold; color: #555;">北美 1v1</div>
+                        <span class="price-tag red">100元 <span style="font-size:0.4em; font-weight:normal;">/节</span></span>
+                        <div style="font-size: 0.7em; color: #999;">含ClassIn技术费</div>
+                    </div>
+                </div>
                 
-                <div class="container" style="margin-top: 40px;">
-                    <div class="col" style="background: #eaf2f8; text-align: center;">
-                        <h3>🇵🇭 菲教 1v1</h3>
-                        <p style="font-size: 2em; color: #2980b9; margin: 20px 0;">28元 <span style="font-size:0.5em">/节</span></p>
-                        <p class="small-text">含ClassIn技术费</p>
-                    </div>
-                    <div class="col" style="background: #eaf2f8; text-align: center;">
-                        <h3>🇺🇸 北美 1v1</h3>
-                        <p style="font-size: 2em; color: #c0392b; margin: 20px 0;">100元 <span style="font-size:0.5em">/节</span></p>
-                        <p class="small-text">含ClassIn技术费</p>
-                    </div>
-                </div>
-                <p style="text-align: center; margin-top: 20px; font-weight: bold;">
-                    ✅ 100%定价权 &nbsp;&nbsp; ✅ 品牌保护 &nbsp;&nbsp; ✅ 行业底价
-                </p>
-            </section>
-
-            <section>
-                <h2>模式一 · 利润测算</h2>
-                <h3>“只要卖得动，利润全是您的”</h3>
-                
-                <div style="background: #fff3cd; padding: 20px; border-radius: 10px; margin-top: 30px;">
-                    <h4>以菲教课程为例：</h4>
-                    <ul style="font-size: 0.9em;">
-                        <li>建议零售价：<strong>40元 - 60元 / 节</strong></li>
-                        <li>您的进货价：<strong>28元 / 节</strong></li>
-                        <li>单节毛利：<span class="highlight">12元 - 32元</span></li>
-                    </ul>
-                </div>
-
-                <div style="margin-top: 30px;">
-                    <p>如果您销售一个 <strong>“40课时学期包”</strong> (售价1600元)：</p>
-                    <div style="font-size: 1.5em; color: #27ae60; font-weight: bold; text-align: center; border: 2px dashed #27ae60; padding: 10px;">
-                        单单净赚：480元
-                    </div>
-                    <p class="small-text" style="text-align: center; margin-top: 10px;">注：机构无需承担师资底薪，每多一个学生就是纯利。</p>
+                <div style="margin-top: 30px; font-size: 0.85em; text-align: center;">
+                    ✅ <strong>100% 定价权</strong> (溢价全归您) &nbsp;&nbsp; ✅ <strong>品牌保护</strong> (对外展示为您机构老师)
                 </div>
             </section>
 
             <section>
-                <h2>模式二：渠道合伙人（分润模式）</h2>
-                <p style="font-size: 0.9em; color: #7f8c8d;">适用：托管班、绘本馆、不想投入精力做售后的机构</p>
+                <h2>利润测算：钱是怎么赚的？</h2>
+                <h4 style="color: #666; font-weight: normal;">以 <span class="highlight-blue">菲教课程</span> 为例：</h4>
 
-                <ul style="margin-top: 30px;">
-                    <li><strong>零投入：</strong>无需充值，无需招聘，只需推荐意向学员。</li>
-                    <li><strong>全托管：</strong>试听、转化、排课、服务全由我们负责。</li>
-                    <li><strong>稳定返佣：</strong>享受 <span class="highlight">10%</span> 现金返佣。</li>
-                </ul>
+                <div class="card">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 15px;">
+                        <span>建议零售价：</span>
+                        <span style="font-weight: bold;">40元 - 60元 / 节</span>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
+                        <span>您的进货价：</span>
+                        <span style="font-weight: bold; color: #2980b9;">28元 / 节</span>
+                    </div>
+                    <div style="background: #f1f8e9; color: #27ae60; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold;">
+                        单节毛利：12元 - 32元
+                    </div>
+                </div>
 
-                <div class="box" style="background: #d4efdf; border-color: #27ae60; color: #1e8449;">
-                    <h4 style="margin:0;">🔥 核心卖点：永久绑定收益</h4>
-                    <p style="font-size: 0.8em; margin-top: 10px;">只要学生续费，您永远有提成！<br>(例如：推荐学生在我们这学满3年，您将获得持续3年的被动收入)</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <p>如果您卖出一个 <strong>“40课时学期包”</strong> (售价1600元)：</p>
+                    <div style="font-size: 1.8em; color: #e67e22; font-weight: 800;">
+                        一单净赚：480元
+                    </div>
+                    <p style="font-size: 0.6em; color: #999;">无需承担师资底薪，每多一个学生就是纯利</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>模式二：渠道合伙人 (分润)</h2>
+                <div class="highlight-bg" style="font-size: 0.9em; margin-bottom: 30px; border-color: #27ae60; background: linear-gradient(to right, #e8f5e9, #ffffff);">
+                    <strong>适用对象：</strong> 托管班、绘本馆、不想投入精力做售后的机构。
+                </div>
+
+                <div class="container">
+                    <div class="col">
+                        <h4>🎁 零投入·全托管</h4>
+                        <p style="color:#666;">无需充值，无需招聘。<br>试听、排课、服务全由我们负责。</p>
+                    </div>
+                    <div class="col">
+                        <h4>💰 10% 现金返佣</h4>
+                        <p style="color:#666;">只需推荐意向学员，<br>成交即可获得学费的 10%。</p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 30px; background: #2c3e50; color: white;">
+                    <h4 style="color: #f1c40f; margin-bottom: 10px;">🔥 核心优势：永久绑定收益</h4>
+                    <p style="font-size: 0.8em; margin: 0;">只要学生续费，您永远有提成！<br>（例：推荐学生在我们这学满3年，您将获得3年的被动收入）</p>
                 </div>
             </section>
 
             <section style="text-align: center;">
-                <h2>立即行动，抢占口语市场红利</h2>
+                <h2 style="margin-bottom: 40px;">立即行动，抢占口语市场红利</h2>
                 
-                <div class="container" style="text-align: left; margin-top: 40px;">
-                    <div class="col">
-                        <strong>🚀 极速启动</strong>
-                        <p>今天签约，明天开课，全套物料支持</p>
+                <div class="container" style="text-align: left; margin-bottom: 50px;">
+                    <div class="col" style="text-align: center;">
+                        <div style="font-size: 2em;">🚀</div>
+                        <strong>极速启动</strong>
+                        <p style="font-size:0.7em; color:#666">今天签约，明天开课</p>
                     </div>
-                    <div class="col">
-                        <strong>🛡️ 资金安全</strong>
-                        <p>预充值模式，用多少扣多少</p>
+                    <div class="col" style="text-align: center;">
+                        <div style="font-size: 2em;">🛡️</div>
+                        <strong>资金安全</strong>
+                        <p style="font-size:0.7em; color:#666">预充值，无库存压力</p>
                     </div>
-                    <div class="col">
-                        <strong>💎 品质兜底</strong>
-                        <p>全程质量监控，不满意可换师</p>
+                    <div class="col" style="text-align: center;">
+                        <div style="font-size: 2em;">💎</div>
+                        <strong>品质兜底</strong>
+                        <p style="font-size:0.7em; color:#666">全程监控，不满意换师</p>
                     </div>
                 </div>
 
-                <div style="margin-top: 50px; background: #2c3e50; color: white; padding: 20px; border-radius: 10px;">
-                    <h4>联系我们要方案</h4>
-                    <p style="font-size: 0.9em; line-height: 1.6;">
-                    <strong>商务经理：Coco 老师</strong><br>
-                    <strong>微信号：cocozaixianyingyu</strong>
-                    </p>
+                <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); display: inline-block;">
+                    <h4 style="margin: 0 0 15px 0; color: #2c3e50;">联系我们要方案</h4>
+                    <div style="text-align: left; font-size: 0.9em; line-height: 1.8;">
+                        <div>👤 商务经理：<strong>Coco 老师</strong></div>
+                        <div>💬 微信号：<span class="highlight-blue">cocozaixianyingyu</span></div>
+                    </div>
                 </div>
             </section>
 
@@ -210,13 +305,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script>
-        // 初始化 Reveal.js
         Reveal.initialize({
             controls: true,
             progress: true,
             center: true,
             hash: true,
-            transition: 'slide', 
+            transition: 'convex', // 使用更柔和的切换动画
             width: 1200, 
             height: 700
         });
