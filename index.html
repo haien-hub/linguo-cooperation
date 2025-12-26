@@ -18,30 +18,46 @@
         .reveal {
             font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
             color: #2c3e50;
+            font-size: 36px; /* 设定基准字体大小 */
         }
 
-        /* --- 2. 固定 Logo 样式 (内页显示) --- */
+        /* --- 关键调整：确保内容垂直居中且不超出屏幕 --- */
+        .reveal .slides > section {
+            height: 100%;
+            display: flex !important; /* 强制使用 flex 布局 */
+            flex-direction: column;
+            justify-content: center; /* 内容在屏幕中垂直居中 */
+            padding: 20px 0; /* 上下留出安全距离 */
+        }
+        /* 首页特殊处理，靠上对齐 */
+        .reveal .slides > section.title-slide {
+            justify-content: flex-start;
+            padding-top: 60px;
+        }
+
+        /* --- 2. 固定 Logo 样式 (移至右上角，避免挡字) --- */
         #fixed-logo {
             position: fixed;
-            top: 30px;
-            left: 30px;
-            width: 160px; /* Logo大小 */
+            top: 25px;
+            right: 30px; /* 改到右上角 */
+            width: 130px; /* 稍微调小 */
             z-index: 1000;
-            display: none; /* 默认隐藏，由JS控制在非首页显示 */
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            display: none; /* 默认隐藏，由JS控制 */
+            opacity: 0.9; /* 轻微透明，减少干扰 */
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
         }
 
         /* --- 3. 标题与排版优化 --- */
-        .reveal h1, .reveal h2, .reveal h3 {
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
             text-transform: none;
             font-weight: 700;
             letter-spacing: -0.5px;
+            margin: 0 0 30px 0; /* 统一标题下边距 */
         }
-        .reveal h1 { font-size: 3em; color: #2c3e50; margin-bottom: 20px; }
+        .reveal h1 { font-size: 2.8em; color: #2c3e50; }
         .reveal h2 { 
-            font-size: 2.2em; 
+            font-size: 2em; 
             color: #34495e; 
-            margin-bottom: 40px; 
             position: relative;
             display: inline-block;
         }
@@ -50,7 +66,7 @@
             content: '';
             display: block;
             width: 60px;
-            height: 6px;
+            height: 5px;
             background: #3498db;
             margin-top: 15px;
             border-radius: 3px;
@@ -58,78 +74,75 @@
 
         /* --- 4. 玻璃拟态卡片 (Glassmorphism) --- */
         .card {
-            background: rgba(255, 255, 255, 0.85); /* 半透明白 */
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05), 0 5px 15px rgba(0,0,0,0.03);
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 30px;
             margin: 20px 0;
-            backdrop-filter: blur(10px); /* 毛玻璃效果 */
+            backdrop-filter: blur(10px);
         }
         
         /* --- 5. 布局容器 --- */
         .container {
             display: flex;
             justify-content: space-between;
-            gap: 40px; /* 增加间距，防止拥挤 */
+            gap: 30px;
             align-items: stretch;
         }
         .col {
             flex: 1;
             background: #ffffff;
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             text-align: left;
             transition: transform 0.3s ease;
         }
-        .col:hover {
-            transform: translateY(-5px); /* 鼠标悬停轻微上浮 */
-        }
+        .col:hover { transform: translateY(-5px); }
 
         /* --- 6. 重点元素高亮 --- */
         .price-box {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             border-radius: 12px;
             margin-top: 15px;
         }
         .price-num {
-            font-size: 3.5em;
+            font-size: 3em;
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.1;
         }
         .tag-blue { color: #2980b9; background: #ebf5fb; }
         .tag-red { color: #c0392b; background: #fdedec; }
         
         /* 列表美化 */
         ul.feature-list {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
         }
         ul.feature-list li {
             list-style: none;
-            margin-bottom: 20px;
-            padding-left: 35px;
+            margin-bottom: 15px;
+            padding-left: 30px;
             position: relative;
-            font-size: 1.1em;
+            font-size: 1em;
         }
         ul.feature-list li::before {
             content: '✔';
             position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
+            left: 0; color: #27ae60; font-weight: bold;
         }
 
         /* 首页 Logo 样式 */
         .cover-logo {
-            max-width: 350px;
-            margin-bottom: 40px !important;
-            border: none !important;
-            box-shadow: none !important;
-            background: transparent !important;
+            max-width: 320px;
+            margin-bottom: 30px !important;
+            border: none !important; box-shadow: none !important; background: transparent !important;
         }
+
+        /* 辅助类：减小边距 */
+        .mt-s { margin-top: 20px !important; }
+        .mb-s { margin-bottom: 20px !important; }
     </style>
 </head>
 <body>
@@ -139,55 +152,55 @@
     <div class="reveal">
         <div class="slides">
 
-            <section style="text-align: center; padding-top: 50px;">
+            <section class="title-slide" style="text-align: center;">
                 <img src="千语外教logo.jpg" alt="Logo" class="cover-logo">
                 
                 <h1>机构外教业务解决方案</h1>
-                <h3 style="font-weight: 300; color: #666; font-size: 1.6em; margin-top: 30px;">
+                <h3 style="font-weight: 300; color: #666; font-size: 1.5em; margin-top: 25px;">
                     助力机构 <span style="color:#3498db; font-weight:600;">低成本</span> · <span style="color:#3498db; font-weight:600;">零风险</span> 开启高品质外教课
                 </h3>
-                <div style="margin-top: 80px; font-size: 1.1em; color: #95a5a6; border-top: 1px solid #ddd; padding-top: 30px; display:inline-block; padding-left: 40px; padding-right: 40px;">
+                <div style="margin-top: 60px; font-size: 1em; color: #95a5a6; border-top: 1px solid #ddd; padding-top: 25px; display:inline-block; padding-left: 40px; padding-right: 40px;">
                     千语外教 × ClassIn 深度技术合作
                 </div>
             </section>
 
             <section>
                 <h2>为什么机构想做外教，却不敢做？</h2>
-                <div class="container" style="margin-top: 50px;">
+                <div class="container mt-s">
                     <div class="col">
-                        <div style="font-size: 4em; margin-bottom: 15px;">😫</div>
-                        <h3 style="margin:0 0 15px 0; font-size: 1.5em;">招聘管理难</h3>
-                        <p style="color:#666; font-size:1em; line-height:1.6;">优质外教难寻，签证繁琐，人员流动大，管理牵扯极大精力。</p>
+                        <div style="font-size: 3.5em; margin-bottom: 10px;">😫</div>
+                        <h3 style="margin:0 0 10px 0; font-size: 1.3em;">招聘管理难</h3>
+                        <p style="color:#666; font-size:0.9em; line-height:1.5;">优质外教难寻，签证繁琐，人员流动大，管理牵扯极大精力。</p>
                     </div>
                     <div class="col">
-                        <div style="font-size: 4em; margin-bottom: 15px;">💸</div>
-                        <h3 style="margin:0 0 15px 0; font-size: 1.5em;">运营成本高</h3>
-                        <p style="color:#666; font-size:1em; line-height:1.6;">全职底薪高，淡季养人负担重，试错成本极高。</p>
+                        <div style="font-size: 3.5em; margin-bottom: 10px;">💸</div>
+                        <h3 style="margin:0 0 10px 0; font-size: 1.3em;">运营成本高</h3>
+                        <p style="color:#666; font-size:0.9em; line-height:1.5;">全职底薪高，淡季养人负担重，试错成本极高。</p>
                     </div>
                     <div class="col">
-                        <div style="font-size: 4em; margin-bottom: 15px;">📉</div>
-                        <h3 style="margin:0 0 15px 0; font-size: 1.5em;">上课体验差</h3>
-                        <p style="color:#666; font-size:1em; line-height:1.6;">普通视频软件卡顿，无互动工具，家长觉得不值，满意度低。</p>
+                        <div style="font-size: 3.5em; margin-bottom: 10px;">📉</div>
+                        <h3 style="margin:0 0 10px 0; font-size: 1.3em;">上课体验差</h3>
+                        <p style="color:#666; font-size:0.9em; line-height:1.5;">普通视频软件卡顿，无互动工具，家长觉得不值，满意度低。</p>
                     </div>
                 </div>
-                <div class="card" style="text-align: center; margin-top: 40px; background: #ebf5fb; border-color: #3498db;">
-                    <strong style="color: #2980b9; font-size: 1.4em;">👉 我们为您提供“轻资产、高品质”的一站式解决方案</strong>
+                <div class="card" style="text-align: center; margin-top: 30px; background: #ebf5fb; border-color: #3498db; padding: 20px;">
+                    <strong style="color: #2980b9; font-size: 1.2em;">👉 我们为您提供“轻资产、高品质”的一站式解决方案</strong>
                 </div>
             </section>
 
             <section>
                 <h2>严选全球师资</h2>
-                <div class="container" style="margin-top: 40px;">
-                    <div class="col" style="border-top: 6px solid #3498db;">
-                        <h3 style="color:#2980b9; margin-bottom: 25px;">🇵🇭 菲律宾外教</h3>
+                <div class="container mt-s">
+                    <div class="col" style="border-top: 5px solid #3498db;">
+                        <h3 style="color:#2980b9; margin-bottom: 20px; font-size: 1.4em;">🇵🇭 菲律宾外教</h3>
                         <ul class="feature-list">
                             <li><strong>100% 持证：</strong>拥有 TESOL/TEFL 国际英语教学资格证。</li>
                             <li><strong>全职管理：</strong>非兼职临时工，经过严格岗前培训。</li>
                             <li><strong>超高性价比：</strong>口音纯正，亲和力强，家长决策成本低。</li>
                         </ul>
                     </div>
-                    <div class="col" style="border-top: 6px solid #e74c3c;">
-                        <h3 style="color:#c0392b; margin-bottom: 25px;">🇺🇸 北美外教</h3>
+                    <div class="col" style="border-top: 5px solid #e74c3c;">
+                        <h3 style="color:#c0392b; margin-bottom: 20px; font-size: 1.4em;">🇺🇸 北美外教</h3>
                         <ul class="feature-list">
                             <li><strong>纯正母语：</strong>来自美国/加拿大本土，原汁原味美式发音。</li>
                             <li><strong>资深经验：</strong>丰富 K12 教学经验，擅长引导式教学。</li>
@@ -199,82 +212,82 @@
 
             <section>
                 <h2>ClassIn 顶尖教学体验</h2>
-                <p style="font-size: 1.2em; color: #666; margin-bottom: 50px;">告别卡顿与单调，让在线课堂像线下一样生动</p>
+                <p style="font-size: 1.1em; color: #666; margin-bottom: 40px;">告别卡顿与单调，让在线课堂像线下一样生动</p>
 
-                <div class="card" style="display: flex; align-items: center; justify-content: space-around; padding: 60px 40px;">
+                <div class="card" style="display: flex; align-items: center; justify-content: space-around; padding: 40px 30px;">
                     <div style="text-align: center; flex: 1;">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050523.png" style="width: 100px; border:none; box-shadow:none; margin-bottom: 20px;">
-                        <h4 style="font-size: 1.4em; margin-bottom: 10px;">沉浸式互动</h4>
-                        <p style="font-size: 0.9em; color:#666; line-height: 1.5;">举手抢答、多人上台<br>电子黑板、互动课件</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050523.png" style="width: 80px; border:none; box-shadow:none; margin-bottom: 15px;">
+                        <h4 style="font-size: 1.2em; margin-bottom: 10px;">沉浸式互动</h4>
+                        <p style="font-size: 0.8em; color:#666; line-height: 1.4;">举手抢答、多人上台<br>电子黑板、互动课件</p>
                     </div>
-                    <div style="width: 2px; height: 100px; background: #eee;"></div>
+                    <div style="width: 1px; height: 80px; background: #ddd;"></div>
                     
                     <div style="text-align: center; flex: 1;">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2906/2906274.png" style="width: 100px; border:none; box-shadow:none; margin-bottom: 20px;">
-                        <h4 style="font-size: 1.4em; margin-bottom: 10px;">云端录播存储</h4>
-                        <p style="font-size: 0.9em; color:#666; line-height: 1.5;">自动生成高清回放<br>随时随地复习巩固</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2906/2906274.png" style="width: 80px; border:none; box-shadow:none; margin-bottom: 15px;">
+                        <h4 style="font-size: 1.2em; margin-bottom: 10px;">云端录播存储</h4>
+                        <p style="font-size: 0.8em; color:#666; line-height: 1.4;">自动生成高清回放<br>随时随地复习巩固</p>
                     </div>
-                    <div style="width: 2px; height: 100px; background: #eee;"></div>
+                    <div style="width: 1px; height: 80px; background: #ddd;"></div>
 
                     <div style="text-align: center; flex: 1;">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1161/1161388.png" style="width: 100px; border:none; box-shadow:none; margin-bottom: 20px;">
-                        <h4 style="font-size: 1.4em; margin-bottom: 10px;">全流程数据</h4>
-                        <p style="font-size: 0.9em; color:#666; line-height: 1.5;">学习报告自动生成<br>教学效果可视化</p>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1161/1161388.png" style="width: 80px; border:none; box-shadow:none; margin-bottom: 15px;">
+                        <h4 style="font-size: 1.2em; margin-bottom: 10px;">全流程数据</h4>
+                        <p style="font-size: 0.8em; color:#666; line-height: 1.4;">学习报告自动生成<br>教学效果可视化</p>
                     </div>
                 </div>
             </section>
 
             <section>
                 <h2>模式一：品牌自营 (批发采购)</h2>
-                <div style="background: #e8f6f3; color: #16a085; padding: 15px 30px; border-radius: 50px; display: inline-block; font-size: 0.9em; margin-bottom: 40px; font-weight: bold;">
+                <div style="background: #e8f6f3; color: #16a085; padding: 12px 25px; border-radius: 50px; display: inline-block; font-size: 0.8em; margin-bottom: 30px; font-weight: bold;">
                     适用对象： 有生源基础、想做自有品牌、追求高利润的机构
                 </div>
 
                 <div class="container">
-                    <div class="col tag-blue">
-                        <div style="font-size: 1.5em; font-weight: bold; color: #2c3e50;">菲教 1v1</div>
+                    <div class="col tag-blue" style="padding: 25px;">
+                        <div style="font-size: 1.3em; font-weight: bold; color: #2c3e50;">菲教 1v1</div>
                         <div class="price-box">
-                            <span class="price-num">28元</span> <span style="font-size:1em;">/节</span>
+                            <span class="price-num">28元</span> <span style="font-size:0.9em;">/节</span>
                         </div>
-                        <div style="font-size: 0.9em; color: #666; margin-top: 10px;">(含ClassIn技术费)</div>
+                        <div style="font-size: 0.8em; color: #666; margin-top: 10px;">(含ClassIn技术费)</div>
                     </div>
-                    <div class="col tag-red">
-                        <div style="font-size: 1.5em; font-weight: bold; color: #2c3e50;">北美 1v1</div>
+                    <div class="col tag-red" style="padding: 25px;">
+                        <div style="font-size: 1.3em; font-weight: bold; color: #2c3e50;">北美 1v1</div>
                         <div class="price-box">
-                            <span class="price-num">100元</span> <span style="font-size:1em;">/节</span>
+                            <span class="price-num">100元</span> <span style="font-size:0.9em;">/节</span>
                         </div>
-                        <div style="font-size: 0.9em; color: #666; margin-top: 10px;">(含ClassIn技术费)</div>
+                        <div style="font-size: 0.8em; color: #666; margin-top: 10px;">(含ClassIn技术费)</div>
                     </div>
                 </div>
                 
-                <div style="margin-top: 50px; font-size: 1.2em; text-align: center; font-weight: bold; color: #555;">
-                    ✅ 100% 定价权 <span style="font-size:0.7em; color:#999; font-weight:normal;">(溢价全归您)</span> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    ✅ 品牌保护 <span style="font-size:0.7em; color:#999; font-weight:normal;">(对外展示为您机构老师)</span>
+                <div style="margin-top: 40px; font-size: 1em; text-align: center; font-weight: bold; color: #555;">
+                    ✅ 100% 定价权 <span style="font-size:0.8em; color:#999; font-weight:normal;">(溢价全归您)</span> 
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    ✅ 品牌保护 <span style="font-size:0.8em; color:#999; font-weight:normal;">(对外展示为您机构老师)</span>
                 </div>
             </section>
 
             <section>
                 <h2>利润测算：钱是怎么赚的？</h2>
-                <h4 style="color: #7f8c8d; font-weight: normal; margin-bottom: 30px;">以 <span style="color:#2980b9; font-weight:bold;">菲教课程</span> 为例：</h4>
+                <h4 style="color: #7f8c8d; font-weight: normal; margin-bottom: 25px; font-size: 1.2em;">以 <span style="color:#2980b9; font-weight:bold;">菲教课程</span> 为例：</h4>
 
-                <div class="card" style="font-size: 1.2em;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; border-bottom: 1px dashed #ccc; padding-bottom: 25px;">
+                <div class="card" style="font-size: 1.1em; padding: 25px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 20px;">
                         <span>建议零售价：</span>
-                        <span style="font-weight: bold; font-size: 1.2em;">40元 - 60元 / 节</span>
+                        <span style="font-weight: bold;">40元 - 60元 / 节</span>
                     </div>
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px;">
                         <span>您的进货价：</span>
-                        <span style="font-weight: bold; color: #2980b9; font-size: 1.2em;">28元 / 节</span>
+                        <span style="font-weight: bold; color: #2980b9;">28元 / 节</span>
                     </div>
-                    <div style="background: #eafaf1; color: #27ae60; padding: 25px; border-radius: 12px; text-align: center; font-weight: bold; font-size: 1.3em;">
+                    <div style="background: #eafaf1; color: #27ae60; padding: 20px; border-radius: 12px; text-align: center; font-weight: bold; font-size: 1.2em;">
                         单节毛利：12元 - 32元
                     </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 40px;">
-                    <p style="font-size: 1.2em;">如果您卖出一个 <strong>“40课时学期包”</strong> (售价1600元)：</p>
-                    <div style="font-size: 2.5em; color: #e67e22; font-weight: 800; margin: 20px 0; text-shadow: 0 2px 5px rgba(230, 126, 34, 0.2);">
+                <div style="text-align: center; margin-top: 30px;">
+                    <p style="font-size: 1.1em;">如果您卖出一个 <strong>“40课时学期包”</strong> (售价1600元)：</p>
+                    <div style="font-size: 2.2em; color: #e67e22; font-weight: 800; margin: 15px 0; text-shadow: 0 2px 5px rgba(230, 126, 34, 0.2);">
                         一单净赚：480元
                     </div>
                     <p style="font-size: 0.8em; color: #95a5a6;">(注：无需承担师资底薪，每多一个学生就是纯利)</p>
@@ -283,51 +296,51 @@
 
             <section>
                 <h2>模式二：渠道合伙人 (分润)</h2>
-                <div style="background: linear-gradient(to right, #fef9e7, #fff); border-left: 5px solid #f1c40f; color: #7f8c8d; padding: 15px 30px; display: inline-block; font-size: 0.9em; margin-bottom: 40px; border-radius: 4px;">
+                <div style="background: linear-gradient(to right, #fef9e7, #fff); border-left: 5px solid #f1c40f; color: #7f8c8d; padding: 12px 25px; display: inline-block; font-size: 0.8em; margin-bottom: 30px; border-radius: 4px;">
                     <strong>适用对象：</strong> 托管班、绘本馆、不想投入精力做售后的机构。
                 </div>
 
                 <div class="container">
                     <div class="col">
-                        <h3 style="color: #27ae60;">🎁 零投入·全托管</h3>
-                        <p style="color:#666; font-size: 1.1em; line-height: 1.6;">无需充值，无需招聘。<br>试听、排课、服务全由我们负责。</p>
+                        <h3 style="color: #27ae60; font-size: 1.4em;">🎁 零投入·全托管</h3>
+                        <p style="color:#666; font-size: 1em; line-height: 1.5;">无需充值，无需招聘。<br>试听、排课、服务全由我们负责。</p>
                     </div>
                     <div class="col">
-                        <h3 style="color: #e67e22;">💰 10% 现金返佣</h3>
-                        <p style="color:#666; font-size: 1.1em; line-height: 1.6;">只需推荐意向学员，<br>成交即可获得学费的 10%。</p>
+                        <h3 style="color: #e67e22; font-size: 1.4em;">💰 10% 现金返佣</h3>
+                        <p style="color:#666; font-size: 1em; line-height: 1.5;">只需推荐意向学员，<br>成交即可获得学费的 10%。</p>
                     </div>
                 </div>
 
-                <div class="card" style="margin-top: 40px; background: #2c3e50; color: white; border: none;">
-                    <h3 style="color: #f1c40f; margin-bottom: 15px;">🔥 核心优势：永久绑定收益</h3>
-                    <p style="font-size: 1.1em; margin: 0; line-height: 1.6;">只要学生续费，您永远有提成！<br><span style="font-size:0.8em; opacity: 0.8;">（例：推荐学生在我们这学满3年，您将获得3年的被动收入）</span></p>
+                <div class="card" style="margin-top: 30px; background: #2c3e50; color: white; border: none; padding: 25px;">
+                    <h3 style="color: #f1c40f; margin-bottom: 15px; font-size: 1.3em;">🔥 核心优势：永久绑定收益</h3>
+                    <p style="font-size: 1em; margin: 0; line-height: 1.5;">只要学生续费，您永远有提成！<br><span style="font-size:0.8em; opacity: 0.8;">（例：推荐学生在我们这学满3年，您将获得3年的被动收入）</span></p>
                 </div>
             </section>
 
-            <section style="text-align: center;">
-                <h2 style="margin-bottom: 60px;">立即行动，抢占口语市场红利</h2>
+            <section>
+                <h2 style="margin-bottom: 40px;">立即行动，抢占口语市场红利</h2>
                 
-                <div class="container" style="text-align: left; margin-bottom: 60px;">
-                    <div class="col" style="text-align: center;">
-                        <div style="font-size: 3em; margin-bottom: 10px;">🚀</div>
+                <div class="container" style="text-align: left; margin-bottom: 40px;">
+                    <div class="col" style="text-align: center; padding: 25px;">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🚀</div>
                         <strong>极速启动</strong>
-                        <p style="font-size:0.9em; color:#666">今天签约，明天开课</p>
+                        <p style="font-size:0.8em; color:#666">今天签约，明天开课</p>
                     </div>
-                    <div class="col" style="text-align: center;">
-                        <div style="font-size: 3em; margin-bottom: 10px;">🛡️</div>
+                    <div class="col" style="text-align: center; padding: 25px;">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🛡️</div>
                         <strong>资金安全</strong>
-                        <p style="font-size:0.9em; color:#666">预充值，无库存压力</p>
+                        <p style="font-size:0.8em; color:#666">预充值，无库存压力</p>
                     </div>
-                    <div class="col" style="text-align: center;">
-                        <div style="font-size: 3em; margin-bottom: 10px;">💎</div>
+                    <div class="col" style="text-align: center; padding: 25px;">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">💎</div>
                         <strong>品质兜底</strong>
-                        <p style="font-size:0.9em; color:#666">全程监控，不满意换师</p>
+                        <p style="font-size:0.8em; color:#666">全程监控，不满意换师</p>
                     </div>
                 </div>
 
-                <div style="background: white; padding: 40px 60px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); display: inline-block;">
-                    <h3 style="margin: 0 0 25px 0; color: #2c3e50;">联系我们要方案</h3>
-                    <div style="text-align: left; font-size: 1.2em; line-height: 2;">
+                <div style="background: white; padding: 30px 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); display: inline-block;">
+                    <h3 style="margin: 0 0 20px 0; color: #2c3e50; font-size: 1.4em;">联系我们要方案</h3>
+                    <div style="text-align: left; font-size: 1.1em; line-height: 1.8;">
                         <div>👤 商务经理：<strong>Coco 老师</strong></div>
                         <div>💬 微信号：<span style="color:#3498db; font-weight:bold;">cocozaixianyingyu</span></div>
                     </div>
@@ -343,21 +356,21 @@
         Reveal.initialize({
             controls: true,
             progress: true,
-            center: true,
+            center: true, // 配合 CSS 的 flex 布局实现完美居中
             hash: true,
             transition: 'slide', 
-            // 调整尺寸为 16:9 高清，防止内容截断
+            // 维持 16:9 高清比例，增加边距防止贴边
             width: 1600, 
             height: 900,
-            margin: 0.05, // 减少边缘留白
+            margin: 0.1, 
             minScale: 0.2,
             maxScale: 2.0
         });
 
-        // 监听幻灯片切换，控制左上角 Logo 显示/隐藏
+        // 监听幻灯片切换，控制右上角 Logo 显示/隐藏
         Reveal.on('slidechanged', event => {
             const logo = document.getElementById('fixed-logo');
-            // 如果是第一页 (索引为 0)，隐藏 Logo；否则显示
+            // 如果是第一页 (索引为 0)，隐藏固定 Logo；否则显示
             if (event.indexh === 0) {
                 logo.style.display = 'none';
             } else {
